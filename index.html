@@ -3,295 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Trip & Tides | All India Tours & Travel</title>
+<title>Trip & Tides | Explore India</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial, sans-serif;
-  color:#222;
-  background:#f5f8fa;
-  line-height:1.6;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f6f8fa;color:#18252b}
+a{text-decoration:none}
 
 header{
-  background:#ffffff;
-  padding:18px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+ position:fixed;top:0;left:0;width:100%;z-index:1000;
+ padding:18px 6%;display:flex;justify-content:space-between;
+ align-items:center;background:rgba(255,255,255,.96);
+ box-shadow:0 2px 15px rgba(0,0,0,.08)
 }
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#087f8c;
-}
-
-nav a{
-  text-decoration:none;
-  color:#222;
-  margin-left:22px;
-  font-weight:bold;
-}
+.logo{font-size:25px;font-weight:800;color:#087f8c}
+nav a{margin-left:25px;color:#18252b;font-weight:600}
+nav a:hover{color:#087f8c}
 
 .hero{
-  min-height:75vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(135deg,#dff7f5,#eef7ff);
+ min-height:100vh;padding:150px 7% 80px;
+ display:flex;align-items:center;
+ background:
+ linear-gradient(110deg,rgba(5,35,43,.88),rgba(5,35,43,.45)),
+ linear-gradient(135deg,#087f8c,#19a7a0,#164e63);
+ color:white;
 }
 
-.hero h1{
-  font-size:52px;
-  margin-bottom:15px;
-  color:#12343b;
+.hero-content{max-width:760px}
+.badge{
+ display:inline-block;padding:8px 15px;border-radius:30px;
+ background:rgba(255,255,255,.15);margin-bottom:20px;
+ font-weight:bold
+}
+.hero h1{font-size:62px;line-height:1.08;margin-bottom:20px}
+.hero h1 span{color:#5eead4}
+.hero p{font-size:20px;max-width:650px;color:#e7f7f7;margin-bottom:30px}
+
+.btn{
+ display:inline-block;padding:15px 24px;border-radius:9px;
+ margin:5px;font-weight:bold
+}
+.primary{background:#5eead4;color:#073b40}
+.green{background:#25d366;color:white}
+
+.search-box{
+ margin-top:40px;background:white;color:#222;padding:20px;
+ border-radius:14px;display:flex;gap:12px;max-width:850px;
+ box-shadow:0 10px 30px rgba(0,0,0,.2)
+}
+.search-item{flex:1;padding:8px}
+.search-item label{display:block;font-size:12px;color:#777;margin-bottom:5px}
+.search-item strong{font-size:15px}
+.search-btn{
+ border:0;background:#087f8c;color:white;padding:0 25px;
+ border-radius:9px;font-weight:bold
 }
 
-.hero h1 span{
-  color:#087f8c;
-}
+section{padding:80px 7%}
+.title{text-align:center;margin-bottom:45px}
+.title h2{font-size:38px;margin-bottom:10px}
+.title p{color:#66757d}
 
-.hero p{
-  font-size:20px;
-  max-width:700px;
-  margin:0 auto 30px;
-  color:#555;
+.destinations{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:22px
 }
-
-.buttons a{
-  display:inline-block;
-  text-decoration:none;
-  padding:14px 24px;
-  border-radius:8px;
-  margin:5px;
-  font-weight:bold;
+.destination{
+ min-height:260px;border-radius:18px;padding:25px;
+ display:flex;flex-direction:column;justify-content:flex-end;
+ color:white;overflow:hidden;position:relative
 }
-
-.btn-primary{
-  background:#087f8c;
-  color:white;
+.destination:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(transparent,rgba(0,0,0,.8))
 }
-
-.btn-whatsapp{
-  background:#25d366;
-  color:white;
-}
-
-section{
-  padding:70px 7%;
-}
-
-.section-title{
-  text-align:center;
-  font-size:34px;
-  margin-bottom:40px;
-  color:#12343b;
-}
+.destination div{position:relative;z-index:2}
+.himachal{background:linear-gradient(135deg,#6baed6,#183b56)}
+.goa{background:linear-gradient(135deg,#f6c453,#147d92)}
+.kashmir{background:linear-gradient(135deg,#76b852,#234d20)}
+.rajasthan{background:linear-gradient(135deg,#e89b4a,#713b16)}
+.destination h3{font-size:25px;margin-bottom:5px}
 
 .packages{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:25px
 }
+.package{
+ background:white;border-radius:16px;overflow:hidden;
+ box-shadow:0 5px 25px rgba(0,0,0,.08)
+}
+.package-top{height:150px;padding:25px;color:white}
+.package:nth-child(1) .package-top{background:linear-gradient(135deg,#087f8c,#164e63)}
+.package:nth-child(2) .package-top{background:linear-gradient(135deg,#d97706,#9a3412)}
+.package:nth-child(3) .package-top{background:linear-gradient(135deg,#16a34a,#166534)}
+.package-body{padding:25px}
+.package-body h3{font-size:22px;margin-bottom:10px}
+.package-body p{color:#66757d;margin-bottom:18px}
+.price{font-size:22px;font-weight:bold;color:#087f8c}
 
-.card{
-  background:white;
-  border-radius:14px;
-  padding:28px 22px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  transition:.3s;
+.features{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:20px
 }
+.feature{
+ background:white;padding:28px 20px;text-align:center;
+ border-radius:15px;box-shadow:0 4px 20px rgba(0,0,0,.06)
+}
+.feature-icon{font-size:38px;margin-bottom:12px}
+.feature h3{margin-bottom:8px}
+.feature p{color:#68777d}
 
-.card:hover{
-  transform:translateY(-6px);
+.cta{
+ margin:0 7% 80px;padding:60px 30px;text-align:center;
+ border-radius:22px;background:linear-gradient(135deg,#087f8c,#164e63);
+ color:white
 }
-
-.card .icon{
-  font-size:45px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  font-size:23px;
-  margin-bottom:10px;
-  color:#087f8c;
-}
-
-.card p{
-  color:#666;
-  margin-bottom:18px;
-}
-
-.card a{
-  color:#087f8c;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.offer{
-  background:#087f8c;
-  color:white;
-  text-align:center;
-  border-radius:20px;
-  margin:0 7%;
-  padding:55px 25px;
-}
-
-.offer h2{
-  font-size:36px;
-  margin-bottom:12px;
-}
-
-.offer p{
-  font-size:18px;
-  margin-bottom:22px;
-}
-
-.offer a{
-  display:inline-block;
-  background:white;
-  color:#087f8c;
-  text-decoration:none;
-  padding:13px 25px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.why{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-
-.why-box{
-  background:white;
-  padding:30px;
-  border-radius:14px;
-  text-align:center;
-  box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.why-box .icon{
-  font-size:40px;
-  margin-bottom:10px;
-}
+.cta h2{font-size:38px;margin-bottom:12px}
+.cta p{margin-bottom:25px;color:#e5f7f8}
 
 .contact{
-  text-align:center;
-  background:#eaf7f8;
+ background:#eaf7f8;text-align:center
 }
-
-.contact p{
-  margin-bottom:20px;
-  font-size:18px;
-}
-
-.contact a{
-  display:inline-block;
-  margin:6px;
-  padding:13px 22px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.call{
-  background:#087f8c;
-  color:white;
-}
-
-.whatsapp{
-  background:#25d366;
-  color:white;
-}
+.contact h2{font-size:38px;margin-bottom:12px}
+.contact p{margin-bottom:25px;color:#607177}
 
 footer{
-  background:#12343b;
-  color:white;
-  text-align:center;
-  padding:25px;
+ background:#102d35;color:white;text-align:center;padding:30px
 }
+footer p{margin:5px}
 
-.float-whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25d366;
-  color:white;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-size:28px;
-  box-shadow:0 4px 15px rgba(0,0,0,.25);
-  z-index:2000;
+.float{
+ position:fixed;right:20px;bottom:20px;width:60px;height:60px;
+ border-radius:50%;background:#25d366;color:white;
+ display:flex;align-items:center;justify-content:center;
+ font-size:28px;z-index:2000;
+ box-shadow:0 5px 20px rgba(0,0,0,.25)
 }
 
 @media(max-width:900px){
-  .packages{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .why{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:40px;
-  }
+ .destinations{grid-template-columns:repeat(2,1fr)}
+ .packages{grid-template-columns:1fr}
+ .features{grid-template-columns:repeat(2,1fr)}
+ .hero h1{font-size:48px}
 }
 
 @media(max-width:600px){
-  header{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav a{
-    margin:0 7px;
-    font-size:14px;
-  }
-
-  .packages{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    min-height:70vh;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .section-title{
-    font-size:28px;
-  }
-
-  .offer{
-    margin:0 4%;
-  }
+ header{padding:15px 4%;flex-direction:column;gap:12px}
+ nav a{margin:0 7px;font-size:13px}
+ .hero{padding:150px 5% 60px}
+ .hero h1{font-size:38px}
+ .hero p{font-size:17px}
+ .search-box{flex-direction:column}
+ .search-btn{padding:14px}
+ .destinations{grid-template-columns:1fr}
+ .features{grid-template-columns:1fr}
+ section{padding:60px 5%}
+ .cta{margin:0 5% 60px}
 }
 </style>
 </head>
@@ -302,6 +168,7 @@ footer{
   <div class="logo">🌴 Trip & Tides</div>
 
   <nav>
+    <a href="#destinations">Destinations</a>
     <a href="#packages">Packages</a>
     <a href="#why">Why Us</a>
     <a href="#contact">Contact</a>
@@ -309,131 +176,223 @@ footer{
 </header>
 
 <section class="hero">
-  <div>
-    <h1>Explore India with <span>Trip & Tides</span></h1>
+  <div class="hero-content">
+
+    <div class="badge">✈️ All India Tours & Travel</div>
+
+    <h1>Travel More.<br><span>Live More.</span></h1>
 
     <p>
-      Discover beautiful destinations, exciting tours and memorable
-      travel experiences across India.
+      Discover India's most beautiful destinations with
+      comfortable travel, customized packages and personal support.
     </p>
 
-    <div class="buttons">
-      <a class="btn-primary" href="#packages">Explore Packages</a>
+    <a class="btn primary" href="#packages">Explore Packages</a>
 
-      <a class="btn-whatsapp"
-         href="https://wa.me/917018438845"
-         target="_blank">
-         WhatsApp Us
-      </a>
+    <a class="btn green"
+       href="https://wa.me/917018438845"
+       target="_blank">
+       💬 WhatsApp Us
+    </a>
+
+    <div class="search-box">
+
+      <div class="search-item">
+        <label>DESTINATION</label>
+        <strong>📍 Where do you want to go?</strong>
+      </div>
+
+      <div class="search-item">
+        <label>TRAVEL TYPE</label>
+        <strong>🏔️ Family / Couple / Group</strong>
+      </div>
+
+      <div class="search-item">
+        <label>BUDGET</label>
+        <strong>💰 Custom Budget</strong>
+      </div>
+
+      <button class="search-btn"
+        onclick="document.getElementById('contact').scrollIntoView()">
+        Enquire
+      </button>
+
     </div>
+
+  </div>
+</section>
+
+<section id="destinations">
+
+  <div class="title">
+    <h2>Explore Popular Destinations</h2>
+    <p>Choose your next unforgettable journey.</p>
+  </div>
+
+  <div class="destinations">
+
+    <div class="destination himachal">
+      <div>
+        <h3>🏔️ Himachal</h3>
+        <p>Shimla • Manali • Kasol</p>
+      </div>
+    </div>
+
+    <div class="destination goa">
+      <div>
+        <h3>🏖️ Goa</h3>
+        <p>Beaches • Adventure • Fun</p>
+      </div>
+    </div>
+
+    <div class="destination kashmir">
+      <div>
+        <h3>🌿 Kashmir</h3>
+        <p>Srinagar • Gulmarg • Pahalgam</p>
+      </div>
+    </div>
+
+    <div class="destination rajasthan">
+      <div>
+        <h3>🏰 Rajasthan</h3>
+        <p>Jaipur • Jaisalmer • Udaipur</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="packages">
 
-  <h2 class="section-title">Popular Tour Packages</h2>
+  <div class="title">
+    <h2>Featured Tour Packages</h2>
+    <p>Custom packages available according to your budget.</p>
+  </div>
 
   <div class="packages">
 
-    <div class="card">
-      <div class="icon">🏔️</div>
-      <h3>Himachal</h3>
-      <p>Explore Shimla, Manali, Kasol and the beautiful Himalayan valleys.</p>
-      <a href="#contact">Enquire Now →</a>
+    <div class="package">
+      <div class="package-top">
+        <h3>🏔️ Himachal Escape</h3>
+        <p>Mountains & adventure</p>
+      </div>
+
+      <div class="package-body">
+        <p>
+          Explore Shimla, Manali and nearby beautiful destinations.
+        </p>
+        <div class="price">Custom Package</div>
+      </div>
     </div>
 
-    <div class="card">
-      <div class="icon">🏖️</div>
-      <h3>Goa</h3>
-      <p>Enjoy beaches, adventure, nightlife and unforgettable Goa experiences.</p>
-      <a href="#contact">Enquire Now →</a>
+    <div class="package">
+      <div class="package-top">
+        <h3>🏖️ Goa Holiday</h3>
+        <p>Beach & relaxation</p>
+      </div>
+
+      <div class="package-body">
+        <p>
+          Enjoy beaches, sightseeing and unforgettable Goa experiences.
+        </p>
+        <div class="price">Custom Package</div>
+      </div>
     </div>
 
-    <div class="card">
-      <div class="icon">🏔️</div>
-      <h3>Kashmir</h3>
-      <p>Experience Srinagar, Gulmarg, Pahalgam and the beauty of Kashmir.</p>
-      <a href="#contact">Enquire Now →</a>
-    </div>
+    <div class="package">
+      <div class="package-top">
+        <h3>🌿 Kashmir Paradise</h3>
+        <p>Nature & mountains</p>
+      </div>
 
-    <div class="card">
-      <div class="icon">🏰</div>
-      <h3>Rajasthan</h3>
-      <p>Discover forts, palaces, deserts and the royal culture of Rajasthan.</p>
-      <a href="#contact">Enquire Now →</a>
+      <div class="package-body">
+        <p>
+          Discover Srinagar, Gulmarg and Pahalgam with a customized plan.
+        </p>
+        <div class="price">Custom Package</div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<div class="offer">
+<section id="why">
 
-  <h2>Plan Your Dream Trip</h2>
+  <div class="title">
+    <h2>Why Travel With Us?</h2>
+    <p>Simple planning. Better experiences.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">🗺️</div>
+      <h3>All India</h3>
+      <p>Travel arrangements for destinations across India.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">💰</div>
+      <h3>Custom Budget</h3>
+      <p>Packages designed around your travel budget.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🤝</div>
+      <h3>Personal Support</h3>
+      <p>Easy communication before and during your trip.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📱</div>
+      <h3>Easy Booking</h3>
+      <p>Send your requirements directly through WhatsApp.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta">
+
+  <h2>Ready For Your Next Adventure?</h2>
 
   <p>
-    Tell us your destination, dates and budget.
-    We will help you plan your perfect trip.
+    Tell us where you want to go and we'll help you plan the trip.
   </p>
 
-  <a href="https://wa.me/917018438845" target="_blank">
-    Get Travel Quote
+  <a class="btn green"
+     href="https://wa.me/917018438845"
+     target="_blank">
+     💬 Get Travel Quote
   </a>
 
 </div>
 
-<section id="why">
-
-  <h2 class="section-title">Why Choose Trip & Tides?</h2>
-
-  <div class="why">
-
-    <div class="why-box">
-      <div class="icon">🗺️</div>
-      <h3>All India Tours</h3>
-      <p>Travel packages available for destinations across India.</p>
-    </div>
-
-    <div class="why-box">
-      <div class="icon">💰</div>
-      <h3>Custom Packages</h3>
-      <p>Choose your destination, budget and travel requirements.</p>
-    </div>
-
-    <div class="why-box">
-      <div class="icon">📞</div>
-      <h3>Easy Support</h3>
-      <p>Contact us easily through phone or WhatsApp.</p>
-    </div>
-
-  </div>
-</section>
-
 <section id="contact" class="contact">
 
-  <h2 class="section-title">Contact Trip & Tides</h2>
+  <h2>Contact Trip & Tides</h2>
 
-  <p>
-    Ready for your next trip? Contact us today.
-  </p>
+  <p>📞 7018438845</p>
 
-  <a class="call" href="tel:+917018438845">
-    📞 Call: 7018438845
+  <a class="btn primary" href="tel:+917018438845">
+    Call Us
   </a>
 
-  <a class="whatsapp"
+  <a class="btn green"
      href="https://wa.me/917018438845"
      target="_blank">
-     💬 WhatsApp
+     WhatsApp
   </a>
 
 </section>
 
 <footer>
-  <p>© 2026 Trip & Tides. All Rights Reserved.</p>
+  <p><strong>🌴 Trip & Tides</strong></p>
   <p>All India Tours & Travel</p>
+  <p>© 2026 Trip & Tides. All Rights Reserved.</p>
 </footer>
 
-<a class="float-whatsapp"
+<a class="float"
    href="https://wa.me/917018438845"
    target="_blank">
    💬
