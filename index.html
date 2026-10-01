@@ -1,200 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip & Tides | Travel Beyond Boundaries</title>
+<meta name="description" content="Trip & Tides - All India Tours & Travel. Discover beautiful destinations, custom trips and unforgettable journeys.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f9f8;
+  color:#17252a;
+  line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+
+/* HEADER */
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:10;
+  padding:22px 0;
+  color:white
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:.5px
+}
+.logo span{color:#5eead4}
+nav{
+  display:flex;
+  gap:28px;
+  align-items:center
+}
+nav a{
+  font-size:15px;
+  font-weight:600;
+  transition:.3s
+}
+nav a:hover{color:#5eead4}
+.nav-btn{
+  background:#fff;
+  color:#123;
+  padding:10px 18px;
+  border-radius:30px
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.25)),
+    url("images/hero.jpg") center/cover no-repeat;
+  color:white
+}
+.hero-content{max-width:720px;padding-top:60px}
+.tag{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  padding:8px 16px;
+  border-radius:30px;
+  margin-bottom:22px;
+  backdrop-filter:blur(8px)
+}
+.hero h1{
+  font-size:clamp(48px,7vw,82px);
+  line-height:1.02;
+  margin-bottom:22px
+}
+.hero h1 span{color:#5eead4}
+.hero p{
+  font-size:19px;
+  max-width:620px;
+  color:#e8eeee;
+  margin-bottom:32px
+}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:30px;
+  font-weight:700;
+  transition:.3s
+}
+.btn-primary{background:#5eead4;color:#073b3a}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-light{
+  border:1px solid rgba(255,255,255,.5);
+  color:white;
+  background:rgba(255,255,255,.08)
+}
+.btn-light:hover{background:white;color:#123}
+
+/* SECTIONS */
+section{padding:90px 0}
+.section-head{text-align:center;margin-bottom:45px}
+.section-head .small{
+  color:#0d9488;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:13px
+}
+.section-head h2{
+  font-size:42px;
+  margin:8px 0
+}
+.section-head p{color:#657276}
+
+/* DESTINATIONS */
+.destinations{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px
+}
+.destination{
+  height:330px;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  background:#ddd;
+  transition:.35s
+}
+.destination:hover{transform:translateY(-8px)}
+.destination img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.destination .overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  color:white;
+  background:linear-gradient(transparent,rgba(0,0,0,.75))
+}
+.destination h3{font-size:25px}
+
+/* PACKAGES */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px
+}
+.card{
+  background:white;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
+  transition:.3s
+}
+.card:hover{transform:translateY(-7px)}
+.card-img{
+  height:220px;
+  background:#ddd;
+  overflow:hidden
+}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:24px}
+.card-body h3{font-size:23px;margin-bottom:8px}
+.meta{color:#68777b;font-size:14px;margin-bottom:15px}
+.price{font-size:20px;font-weight:800;color:#0d9488;margin-bottom:18px}
+
+/* SERVICES */
+.services{
+  background:#102a2d;
+  color:white
+}
+.services .section-head p{color:#b9c8c9}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px
+}
+.service{
+  padding:28px 20px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(255,255,255,.05);
+  transition:.3s
+}
+.service:hover{
+  background:rgba(255,255,255,.1);
+  transform:translateY(-5px)
+}
+.icon{font-size:32px;margin-bottom:12px}
+.service h3{margin-bottom:7px}
+.service p{color:#b8c5c6;font-size:14px}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px
+}
+.gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:.3s
+}
+.gallery img:hover{transform:scale(1.02)}
+
+/* WHY */
+.why{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center
+}
+.why-img{
+  min-height:480px;
+  border-radius:28px;
+  background:url("images/about.jpg") center/cover no-repeat
+}
+.points{display:grid;gap:25px}
+.point{display:flex;gap:17px}
+.point-icon{
+  min-width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#d9f7f3;
+  color:#0d9488;
+  font-size:21px
+}
+.point h3{margin-bottom:4px}
+.point p{color:#69777a}
+
+/* REVIEWS */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px
+}
+.review{
+  background:white;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.06)
+}
+.stars{color:#f59e0b;margin-bottom:12px}
+.review p{color:#59696c;margin-bottom:18px}
+.review strong{font-size:14px}
+
+/* CTA */
+.cta{
+  margin:0 auto 90px;
+  width:min(1100px,92%);
+  padding:65px 30px;
+  border-radius:30px;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.4)),
+    url("images/cta.jpg") center/cover
+}
+.cta h2{font-size:43px;margin-bottom:12px}
+.cta p{margin-bottom:25px;color:#e6eeee}
+
+/* CONTACT */
+.contact{
+  background:#ecf7f5
+}
+.contact-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:start
+}
+.contact-info h2{font-size:40px;margin-bottom:15px}
+.contact-info p{color:#657477;margin-bottom:25px}
+.contact-item{
+  padding:15px 0;
+  border-bottom:1px solid #d2e3e0
+}
+.form{
+  background:white;
+  padding:28px;
+  border-radius:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06)
+}
+.form input,.form select,.form textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #d8e2e1;
+  border-radius:10px;
+  margin-bottom:13px;
+  font:inherit
+}
+.form textarea{min-height:110px;resize:vertical}
+.form button{
+  width:100%;
+  border:0;
+  cursor:pointer
+}
+
+/* FOOTER */
+footer{
+  background:#0b1f21;
+  color:#b9c7c8;
+  padding:35px 0;
+  text-align:center
+}
+footer strong{color:white}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  font-size:28px;
+  z-index:20;
+  box-shadow:0 8px 25px rgba(0,0,0,.25)
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{display:none}
+  .destinations,.service-grid{grid-template-columns:repeat(2,1fr)}
+  .packages,.reviews{grid-template-columns:1fr}
+  .why,.contact-box{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  section{padding:65px 0}
+  .hero h1{font-size:48px}
+  .hero p{font-size:16px}
+  .destinations,.service-grid,.gallery{grid-template-columns:1fr}
+  .destination{height:300px}
+  .why-img{min-height:330px}
+  .section-head h2{font-size:32px}
+  .cta h2{font-size:32px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">🌴 Trip <span>&</span> Tides</div>
+
+    <nav>
+      <a href="#destinations">Destinations</a>
+      <a href="#packages">Packages</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact" class="nav-btn">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="tag">🇮🇳 All India Tours & Travel</div>
+
+      <h1>Travel More.<br><span>Live More.</span></h1>
+
+      <p>
+        Discover unforgettable journeys across India with
+        Trip & Tides. From mountains to beaches, we plan
+        trips made around you.
+      </p>
+
+      <div class="buttons">
+        <a href="#packages" class="btn btn-primary">Explore Packages →</a>
+        <a href="https://wa.me/917018438845" class="btn btn-light">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+  <div class="container">
+    <div class="section-head">
+      <div class="small">Explore India</div>
+      <h2>Popular Destinations</h2>
+      <p>Places that are waiting for your next adventure.</p>
+    </div>
+
+    <div class="destinations">
+
+      <div class="destination">
+        <img src="images/himachal.jpg" alt="Himachal Pradesh">
+        <div class="overlay"><h3>🏔️ Himachal</h3></div>
+      </div>
+
+      <div class="destination">
+        <img src="images/goa.jpg" alt="Goa">
+        <div class="overlay"><h3>🌴 Goa</h3></div>
+      </div>
+
+      <div class="destination">
+        <img src="images/kashmir.jpg" alt="Kashmir">
+        <div class="overlay"><h3>❄️ Kashmir</h3></div>
+      </div>
+
+      <div class="destination">
+        <img src="images/rajasthan.jpg" alt="Rajasthan">
+        <div class="overlay"><h3>🏰 Rajasthan</h3></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="small">Travel With Us</div>
+      <h2>Featured Packages</h2>
+      <p>Choose a journey or ask us to create a custom trip.</p>
+    </div>
+
+    <div class="packages">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/manali.jpg" alt="Manali">
+        </div>
+        <div class="card-body">
+          <h3>🏔️ Manali Escape</h3>
+          <div class="meta">4 Nights / 5 Days • Himachal</div>
+          <div class="price">Starting ₹____</div>
+          <a class="btn btn-primary" href="https://wa.me/917018438845?text=Hi%20Trip%20%26%20Tides%2C%20I%20want%20details%20for%20Manali%20Escape.">Enquire Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/kashmir-package.jpg" alt="Kashmir">
+        </div>
+        <div class="card-body">
+          <h3>❄️ Kashmir Paradise</h3>
+          <div class="meta">5 Nights / 6 Days • Kashmir</div>
+          <div class="price">Starting ₹____</div>
+          <a class="btn btn-primary" href="https://wa.me/917018438845?text=Hi%20Trip%20%26%20Tides%2C%20I%20want%20details%20for%20Kashmir%20Paradise.">Enquire Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/goa-package.jpg" alt="Goa">
+        </div>
+        <div class="card-body">
+          <h3>🌴 Goa Holiday</h3>
+          <div class="meta">4 Nights / 5 Days • Goa</div>
+          <div class="price">Starting ₹____</div>
+          <a class="btn btn-primary" href="https://wa.me/917018438845?text=Hi%20Trip%20%26%20Tides%2C%20I%20want%20details%20for%20Goa%20Holiday.">Enquire Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
-<section id="services">
-  <div class="title">
-    <h2>Our Travel Services</h2>
-    <p>Everything you need for a comfortable journey.</p>
+<section id="services" class="services">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="small">What We Offer</div>
+      <h2>Everything For Your Journey</h2>
+      <p>From planning to reaching your destination.</p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service">
+        <div class="icon">🏨</div>
+        <h3>Hotel Booking</h3>
+        <p>Comfortable stays according to your budget.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">🚕</div>
+        <h3>Cab & Taxi</h3>
+        <p>Local and outstation transportation assistance.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">✈️</div>
+        <h3>Flight Assistance</h3>
+        <p>Travel planning and flight assistance.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">🗺️</div>
+        <h3>Sightseeing</h3>
+        <p>Explore the best attractions at your destination.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">💑</div>
+        <h3>Honeymoon Trips</h3>
+        <p>Special romantic journeys for couples.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">👨‍👩‍👧</div>
+        <h3>Family Tours</h3>
+        <p>Relaxed trips designed for families.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">👥</div>
+        <h3>Group Tours</h3>
+        <p>Travel together and make memories together.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">🎒</div>
+        <h3>Custom Trips</h3>
+        <p>Tell us what you want and we'll plan it.</p>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div class="features">
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
 
-    <div class="feature">
-      <div class="feature-icon">🏨</div>
-      <h3>Hotel Booking</h3>
-      <p>Comfortable stays according to your budget.</p>
+    <div class="section-head">
+      <div class="small">Travel Moments</div>
+      <h2>Explore Through Our Lens</h2>
+      <p>Your next memory could be here.</p>
     </div>
 
-    <div class="feature">
-      <div class="feature-icon">🚕</div>
-      <h3>Cab & Taxi</h3>
-      <p>Local sightseeing and outstation travel.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">✈️</div>
-      <h3>Flight Assistance</h3>
-      <p>Travel planning and booking assistance.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🗺️</div>
-      <h3>Sightseeing</h3>
-      <p>Plan your complete sightseeing itinerary.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">💑</div>
-      <h3>Honeymoon Trips</h3>
-      <p>Special packages for couples.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">👨‍👩‍👧‍👦</div>
-      <h3>Family Tours</h3>
-      <p>Comfortable holidays for the whole family.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">👥</div>
-      <h3>Group Tours</h3>
-      <p>Customized trips for groups and friends.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🎒</div>
-      <h3>Custom Trips</h3>
-      <p>Your destination, your budget, your plan.</p>
+    <div class="gallery">
+      <img src="images/gallery1.jpg" alt="Travel">
+      <img src="images/gallery2.jpg" alt="Travel">
+      <img src="images/gallery3.jpg" alt="Travel">
+      <img src="images/gallery4.jpg" alt="Travel">
+      <img src="images/gallery5.jpg" alt="Travel">
+      <img src="images/gallery6.jpg" alt="Travel">
     </div>
 
   </div>
 </section>
 
+<!-- WHY US -->
+<section>
+  <div class="container why">
 
-<!-- TRAVEL DEALS -->
-<section id="deals">
+    <div class="why-img"></div>
 
-  <div class="title">
-    <h2>🔥 Today's Travel Deals</h2>
-    <p>Special packages from Trip & Tides.</p>
-  </div>
-
-  <div class="packages">
-
-    <div class="package">
-      <div class="package-top">
-        <h3>🏔️ Manali Escape</h3>
-        <p>4 Nights / 5 Days</p>
+    <div>
+      <div class="section-head" style="text-align:left;margin-bottom:30px">
+        <div class="small">Why Trip & Tides</div>
+        <h2>Travel Your Way</h2>
+        <p>We make travel simple, comfortable and personal.</p>
       </div>
 
-      <div class="package-body">
-        <p>Hotel + sightseeing + local transfers.</p>
-        <div class="price">Starting ₹____</div>
+      <div class="points">
 
-        <br>
+        <div class="point">
+          <div class="point-icon">🇮🇳</div>
+          <div>
+            <h3>All India Travel</h3>
+            <p>Explore destinations across India.</p>
+          </div>
+        </div>
 
-        <a class="btn green"
-           href="https://wa.me/917018438845?text=Hello%20Trip%20%26%20Tides,%20I%20am%20interested%20in%20the%20Manali%20package."
-           target="_blank">
-           Enquire Now
-        </a>
-      </div>
-    </div>
+        <div class="point">
+          <div class="point-icon">💰</div>
+          <div>
+            <h3>Budget Friendly</h3>
+            <p>Trips planned around your budget.</p>
+          </div>
+        </div>
 
+        <div class="point">
+          <div class="point-icon">🤝</div>
+          <div>
+            <h3>Personal Support</h3>
+            <p>Easy communication throughout your trip.</p>
+          </div>
+        </div>
 
-    <div class="package">
-      <div class="package-top">
-        <h3>🌿 Kashmir Paradise</h3>
-        <p>5 Nights / 6 Days</p>
-      </div>
+        <div class="point">
+          <div class="point-icon">✨</div>
+          <div>
+            <h3>Custom Experience</h3>
+            <p>Your trip, your style, your memories.</p>
+          </div>
+        </div>
 
-      <div class="package-body">
-        <p>Stay + sightseeing + travel assistance.</p>
-        <div class="price">Starting ₹____</div>
-
-        <br>
-
-        <a class="btn green"
-           href="https://wa.me/917018438845?text=Hello%20Trip%20%26%20Tides,%20I%20am%20interested%20in%20the%20Kashmir%20package."
-           target="_blank">
-           Enquire Now
-        </a>
-      </div>
-    </div>
-
-
-    <div class="package">
-      <div class="package-top">
-        <h3>🏖️ Goa Holiday</h3>
-        <p>4 Nights / 5 Days</p>
-      </div>
-
-      <div class="package-body">
-        <p>Beach holiday + sightseeing + local travel.</p>
-        <div class="price">Starting ₹____</div>
-
-        <br>
-
-        <a class="btn green"
-           href="https://wa.me/917018438845?text=Hello%20Trip%20%26%20Tides,%20I%20am%20interested%20in%20the%20Goa%20package."
-           target="_blank">
-           Enquire Now
-        </a>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- REVIEWS -->
+<section style="background:#f0f7f6">
+  <div class="container">
 
-<!-- ENQUIRY FORM -->
-<section id="enquiry">
+    <div class="section-head">
+      <div class="small">Guest Experiences</div>
+      <h2>What Our Travellers Say</h2>
+    </div>
 
-  <div class="title">
-    <h2>Plan Your Trip</h2>
-    <p>Tell us your requirements and contact us on WhatsApp.</p>
+    <div class="reviews">
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Our trip was smooth and well organised. The whole experience was memorable.”</p>
+        <strong>Sample Review • Customer</strong>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>“The team helped us plan everything according to our budget and schedule.”</p>
+        <strong>Sample Review • Customer</strong>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>“Beautiful destination, comfortable travel and very helpful support.”</p>
+        <strong>Sample Review • Customer</strong>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div style="max-width:700px;margin:auto;background:white;padding:30px;border-radius:18px;box-shadow:0 5px 25px rgba(0,0,0,.08)">
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready For Your Next Adventure?</h2>
+  <p>Let's plan a journey you'll remember for years.</p>
+  <a href="https://wa.me/917018438845?text=Hi%20Trip%20%26%20Tides%2C%20I%20want%20to%20plan%20a%20trip." class="btn btn-primary">
+    💬 Plan My Trip
+  </a>
+</div>
 
-    <form onsubmit="sendEnquiry(); return false;">
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container contact-box">
 
-      <input id="name" required
-        placeholder="Your Name"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+    <div class="contact-info">
+      <div class="section-head" style="text-align:left;margin-bottom:20px">
+        <div class="small">Get In Touch</div>
+        <h2>Let's Plan Your Trip</h2>
+      </div>
 
-      <input id="phone" required
-        placeholder="Mobile Number"
-        type="tel"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+      <p>
+        Tell us where you want to go, when you want to travel
+        and your approximate budget. We'll help you plan it.
+      </p>
 
-      <input id="destination" required
-        placeholder="Destination"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+      <div class="contact-item">
+        📞 <strong>7018438845</strong>
+      </div>
 
-      <input id="date"
-        type="date"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+      <div class="contact-item">
+        💬 <strong>WhatsApp Available</strong>
+      </div>
 
-      <input id="travellers"
-        placeholder="Number of Travellers"
-        type="number"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+      <div class="contact-item">
+        🇮🇳 <strong>Serving All India</strong>
+      </div>
+    </div>
 
-      <input id="budget"
-        placeholder="Approximate Budget"
-        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:8px">
+    <div class="form">
 
-      <textarea id="message"
-        placeholder="Anything else you need?"
-        rows="4"
-        style="width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px"></textarea>
+      <input id="name" type="text" placeholder="Your Name">
 
-      <button type="submit"
-        style="width:100%;padding:15px;background:#25d366;color:white;border:0;border-radius:8px;font-size:16px;font-weight:bold">
+      <input id="mobile" type="tel" placeholder="Mobile Number">
+
+      <input id="destination" type="text" placeholder="Where do you want to go?">
+
+      <input id="date" type="date">
+
+      <select id="travellers">
+        <option value="">Number of Travellers</option>
+        <option>1-2</option>
+        <option>3-5</option>
+        <option>6-10</option>
+        <option>10+</option>
+      </select>
+
+      <input id="budget" type="text" placeholder="Approximate Budget">
+
+      <textarea id="message" placeholder="Tell us anything else..."></textarea>
+
+      <button onclick="sendEnquiry()" class="btn btn-primary">
         💬 Send Enquiry on WhatsApp
       </button>
 
-    </form>
+    </div>
 
   </div>
-
 </section>
 
+<footer>
+  <p>© 2026 <strong>Trip & Tides</strong> • All India Tours & Travel</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/917018438845" target="_blank">💬</a>
 
 <script>
 function sendEnquiry(){
 
   const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
+  const mobile = document.getElementById("mobile").value;
   const destination = document.getElementById("destination").value;
   const date = document.getElementById("date").value;
   const travellers = document.getElementById("travellers").value;
@@ -202,18 +746,24 @@ function sendEnquiry(){
   const message = document.getElementById("message").value;
 
   const text =
-  "Hello Trip & Tides!%0A%0A" +
-  "Name: " + encodeURIComponent(name) + "%0A" +
-  "Mobile: " + encodeURIComponent(phone) + "%0A" +
-  "Destination: " + encodeURIComponent(destination) + "%0A" +
-  "Travel Date: " + encodeURIComponent(date) + "%0A" +
-  "Travellers: " + encodeURIComponent(travellers) + "%0A" +
-  "Budget: " + encodeURIComponent(budget) + "%0A" +
-  "Message: " + encodeURIComponent(message);
+`🌴 Trip & Tides - New Enquiry
+
+👤 Name: ${name}
+📱 Mobile: ${mobile}
+📍 Destination: ${destination}
+📅 Travel Date: ${date}
+👥 Travellers: ${travellers}
+💰 Budget: ${budget}
+
+📝 Message:
+${message}`;
 
   window.open(
-    "https://wa.me/917018438845?text=" + text,
+    "https://wa.me/917018438845?text=" + encodeURIComponent(text),
     "_blank"
   );
 }
 </script>
+
+</body>
+</html>
